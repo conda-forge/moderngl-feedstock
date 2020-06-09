@@ -1,5 +1,5 @@
 {% set name = "moderngl" %}
-{% set version = "5.6.0" %}
+{% set version = "5.6.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/moderngl/moderngl/archive/{{ version }}.tar.gz
-  sha256: 8253231c7d6e0a1ddb0daf5a50cd3ae9b5dac63de48f8b01425a664ce806cc15
+  sha256: f00dfe296b05e6430bacb2af1e403a1fd3d57a95b6f2082b8000311160499ab5
 
 build:
-  number: 1
-  script: "{{ PYTHON }} -m pip install . -vv"
-  skip: True  # [py<35]
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv
+  skip: true  # [py<35]
 
 requirements:
   build:
@@ -42,7 +42,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Modern OpenGL binding for python'
+  summary: Modern OpenGL binding for python
 
 extra:
   recipe-maintainers:
