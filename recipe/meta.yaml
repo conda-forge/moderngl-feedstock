@@ -10,21 +10,21 @@ source:
   sha256: e48e1547c799d579cb023e7ac99bba6dba0ab438a907bd6f00085988beab34c8
 
 build:
-  number: 1
+  number: 2
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py<35]
 
 requirements:
   build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ cdt('libx11-devel') }}  # [linux]
-    - {{ cdt('mesa-libgl-devel') }}  # [linux]
-    - {{ cdt('mesa-dri-drivers') }}  # [linux]
-    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
-    - python  # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}  # [build_platform != target_platform]
-    - numpy  # [build_platform != target_platform]
+    - {{ cdt('libx11-devel') }}              # [linux]
+    - {{ cdt('mesa-libgl-devel') }}          # [linux]
+    - {{ cdt('mesa-dri-drivers') }}          # [linux]
+    - {{ cdt('xorg-x11-proto-devel') }}      # [linux]
 
   host:
     - python
