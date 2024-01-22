@@ -1,5 +1,5 @@
 {% set name = "moderngl" %}
-{% set version = "5.9.0" %}
+{% set version = "5.10.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/moderngl/moderngl/archive/{{ version }}.tar.gz
-  sha256: 6df2aeb4997fb11ba0ecd5160feda122a485cf5da84f336d6fb272530d56520a
+  sha256: acb0610487d090b069a2e11fb4874c2a58f252b59e1bcf23d5e6b7ec2727ffc8
 
 build:
   number: 0
