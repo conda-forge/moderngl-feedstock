@@ -10,7 +10,7 @@ source:
   sha256: acb0610487d090b069a2e11fb4874c2a58f252b59e1bcf23d5e6b7ec2727ffc8
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py<35]
 
@@ -20,6 +20,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - {{ cdt('libx11-devel') }}              # [linux]
     - {{ cdt('mesa-libgl-devel') }}          # [linux]
@@ -33,7 +34,6 @@ requirements:
 
   run:
     - python
-    - {{ pin_compatible('numpy') }}
     - glcontext
 
 test:
