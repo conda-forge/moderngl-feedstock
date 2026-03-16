@@ -10,7 +10,7 @@ source:
   sha256: 0738ce38d66889529ced9d83f70a099d4dc0021a961083f90048e5884fe3d3b9
 
 build:
-  number: 1
+  number: 2
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -21,10 +21,6 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    - {{ cdt('libx11-devel') }}              # [linux]
-    - {{ cdt('mesa-libgl-devel') }}          # [linux]
-    - {{ cdt('mesa-dri-drivers') }}          # [linux]
-    - {{ cdt('xorg-x11-proto-devel') }}      # [linux]
 
   host:
     - python
@@ -32,6 +28,9 @@ requirements:
     - numpy
     - setuptools
 
+    - xorg-libx11                            # [linux]
+    - libgl-devel                            # [linux]
+    - xorg-xorgproto                         # [linux]
   run:
     - python
     - glcontext
